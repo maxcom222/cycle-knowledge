@@ -146,19 +146,12 @@
                   <BookmarkIcon class="h-4 w-4" aria-hidden="true" />
                 </button>
               </div>
-              <div class="mt-3 sm:mt-5 px-2">
-                <p
-                  class="text-sm text-gray-500 text-left"
-                  style="white-space: pre-line"
-                >
-                  {{ selectedArticle.description }}
-                </p>
+              <div
+                class="mt-3 sm:mt-5 px-2 text-sm text-gray-500 text-left"
+                style="white-space: pre-line"
+                v-html="selectedArticle.description"
+              >
               </div>
-              <img
-                class=" mt-3 sm:mt-5 inline-block h-auto max-h-40 md:max-h-64 w-full "
-                :src="selectedArticle.img"
-                alt=""
-              />
             </div>
           </div>
         </TransitionChild>

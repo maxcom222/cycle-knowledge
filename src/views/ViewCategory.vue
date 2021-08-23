@@ -2,7 +2,7 @@
   <div>
     <div>
       <img
-        class="inline-block h-auto max-h-60 md:max-h-96 w-full"
+        class="inline-block h-auto w-full"
         :src="selectedCategory.img"
         alt=""
       />
@@ -22,7 +22,7 @@
         {{ selectedCategory.name }}
       </p>
     </div>
-    <p
+    <div
       class="
         text-sm
         md:text-xl
@@ -31,23 +31,25 @@
         my-6
         md:my-9
         mx-6
-        md:mx-14
+        md:mx-10
         leading-6
         md:leading-8
       "
       style="white-space: pre-line"
+      v-html="selectedCategory.description"
     >
-      {{ selectedCategory.description }}
-    </p>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 px-9 md:px-14 mb-9">
+    </div>
+    <div class="px-3 md:px-10 mb-6">
       <button
         v-for="one in articlesList"
         :key="one.id"
         @click="openArticle(one.id)"
         type="button"
         class="
-          px-1
-          sm:px-3
+          mx-3
+          my-1
+          px-2
+          sm:px-4
           py-1.5
           sm:w-48
           text-sm

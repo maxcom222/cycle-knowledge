@@ -11,6 +11,7 @@
               h-24
               md:h-28
               w-24
+              min-w-24
               md:w-28
               rounded-full
               border-2 border-solid border-text

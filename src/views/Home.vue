@@ -4,7 +4,7 @@
       v-for="category in categoriesList"
       :key="category.id"
       :category_id="parseInt(category.id)"
-      classname="w-64 md:w-80 my-7 md:my-11 mx-auto"
+      classname="w-80 md:w-1/2 my-7 md:my-11 mx-auto"
       :img="category.img"
       :name="category.name"
     />
