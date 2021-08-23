@@ -15,12 +15,12 @@ const actions = {
   },
   async addBookmark({ commit, dispatch }, id) {
     const response = await axios.post(`/api/bookmarks/${id}`);
-    dispatch('fetchArticle', id, { root:true })
+    dispatch("fetchArticle", id, { root: true });
     commit("setBookmarks", response.data);
   },
   async deleteBookmark({ commit, dispatch }, id) {
     await axios.delete(`/api/bookmarks/${id}`);
-    dispatch('fetchArticle', id, { root:true })
+    dispatch("fetchArticle", id, { root: true });
     commit("removeBookmark", id);
   },
 };

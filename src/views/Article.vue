@@ -150,8 +150,7 @@
                 class="mt-3 sm:mt-5 px-2 text-sm text-gray-500 text-left"
                 style="white-space: pre-line"
                 v-html="selectedArticle.description"
-              >
-              </div>
+              ></div>
             </div>
           </div>
         </TransitionChild>

@@ -37,8 +37,7 @@
       "
       style="white-space: pre-line"
       v-html="selectedCategory.description"
-    >
-    </div>
+    ></div>
     <div class="px-3 md:px-10 mb-6">
       <button
         v-for="one in articlesList"
