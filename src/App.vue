@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <main class="lg:relative">
+  <main class="pb-28">
     <router-view />
   </main>
   <Footer />
@@ -26,6 +26,8 @@ export default {
 
 <style lang="scss">
 #app {
+  min-height: 100vh;
   background-color: #fdf6e7;
+  position: relative;
 }
 </style>

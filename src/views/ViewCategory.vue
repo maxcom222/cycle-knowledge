@@ -6,7 +6,7 @@
         :src="selectedCategory.img"
         alt=""
       />
-      <p
+      <!-- <p
         class="
           text-xl
           md:text-2xl
@@ -20,7 +20,7 @@
         "
       >
         {{ selectedCategory.name }}
-      </p>
+      </p> -->
     </div>
     <div
       class="
@@ -38,7 +38,7 @@
       style="white-space: pre-line"
       v-html="selectedCategory.description"
     ></div>
-    <div class="px-3 md:px-10 mb-6">
+    <div class="px-3 md:px-10">
       <button
         v-for="one in articlesList"
         :key="one.id"
@@ -83,9 +83,15 @@ export default {
   async created() {
     await this.fetchArticles(this.$route.params.category_id);
     await this.fetchCategory(this.$route.params.category_id);
+    this.setTitle(this.selectedCategory.name);
   },
   methods: {
-    ...mapActions(["fetchArticles", "fetchCategory", "fetchArticle"]),
+    ...mapActions([
+      "fetchArticles",
+      "fetchCategory",
+      "fetchArticle",
+      "setTitle",
+    ]),
     async openArticle(article_id) {
       await this.fetchArticle(article_id);
       this.openModal = true;

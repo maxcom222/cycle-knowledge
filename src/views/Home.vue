@@ -22,11 +22,12 @@ export default {
   },
   setup() {},
   methods: {
-    ...mapActions(["fetchCategories"]),
+    ...mapActions(["fetchCategories", "setTitle"]),
   },
   computed: mapGetters(["categoriesList"]),
   async created() {
     await this.fetchCategories();
+    this.setTitle("Zykluswissen");
   },
 };
 </script>

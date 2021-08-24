@@ -28,7 +28,7 @@
             :to="{ name: 'Home' }"
             class="text-2xl md:text-3xl text-text font-bold"
           >
-            Zykluswissen
+            {{ this.currentTitle }}
           </router-link>
           <div class="hidden md:flex md:space-x-10">
             <a
@@ -46,6 +46,7 @@
               inline-flex
               items-center
               w-12
+              min-w-12
               h-12
               md:w-14 md:h-14
               border border-transparent
@@ -155,6 +156,8 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
 import Bookmark from "@/views/Bookmark";
 
+import { mapGetters } from "vuex";
+
 const menus = [];
 
 export default {
@@ -166,6 +169,7 @@ export default {
     XIcon,
     Bookmark,
   },
+  computed: mapGetters(["currentTitle"]),
   methods: {
     openBookmark() {
       this.openBookmarkModal = true;

@@ -25,6 +25,7 @@ module.exports = {
         plus: "0px 0px 11px 3px rgba(253,89,31,0.25)",
       },
       minWidth: {
+        12: "3rem",
         24: "6rem",
       },
     },
