@@ -11,6 +11,7 @@
     "@headlessui/vue": "^1.4.0",
     "@heroicons/vue": "^1.0.4",
     "@tailwindcss/forms": "^0.3.3",
+    "@vue-hero-icons/solid": "^1.7.2",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",

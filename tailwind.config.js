@@ -20,6 +20,11 @@ module.exports = {
           DEFAULT: "#A7BCB9",
           dark: "#86A7A2",
         },
+        // backgroundImage: {
+        //   "b-normal": "url('./buttons/bookmark_default.png')",
+        //   "b-pressed": "url('./buttons/bookmark_pressed.png')",
+        //   "b-selected": "url('./buttons/bookmark_selected.png')",
+        // },
       },
       boxShadow: {
         plus: "0px 0px 11px 3px rgba(253,89,31,0.25)",

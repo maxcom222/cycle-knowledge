@@ -79,16 +79,13 @@
                 type="button"
                 @click="deleteBookmark(selectedArticle.id)"
                 class="
-                  mr-3
                   inline-flex
                   justify-center
                   items-center
                   w-12
-                  min-w-12
                   h-12
+                  mr-3
                   border border-transparent
-                  rounded-full
-                  hover:bg-button-dark
                   outline-none
                 "
               >
@@ -99,15 +96,14 @@
                 type="button"
                 @click="addBookmark(selectedArticle.id)"
                 class="
-                  mr-3
                   inline-flex
                   justify-center
                   items-center
                   w-12
-                  min-w-12
                   h-12
+                  mr-3
                   border border-transparent
-                  rounded-full
+                  text-text
                   focus:outline-none
                 "
               >
