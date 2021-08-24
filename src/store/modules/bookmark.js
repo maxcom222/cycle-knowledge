@@ -18,19 +18,19 @@ const actions = {
     dispatch("fetchArticle", id, { root: true });
     commit("setBookmarks", response.data);
   },
-  async deleteBookmark({ commit, dispatch }, id) {
+  async deleteBookmark({ commit }, id) {
     await axios.delete(`/api/bookmarks/${id}`);
-    dispatch("fetchArticle", id, { root: true });
     commit("removeBookmark", id);
   },
 };
 
 const mutations = {
   setBookmarks: (state, bookmarks) => (state.bookmarks = bookmarks),
-  removeBookmark: (state, id) => (
-    state.bookmarks.filter((bookmark) => bookmark.id !== id),
-    state.bookmarks.splice((bookmark) => bookmark.id, 1)
-  ),
+  removeBookmark: (state, id) => {
+    state.bookmarks = state.bookmarks.filter(
+      (bookmark) => parseInt(bookmark.id) != parseInt(id)
+    );
+  },
 };
 
 export default {
