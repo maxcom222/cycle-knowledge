@@ -15,7 +15,7 @@
           sm:align-middle sm:max-w-sm
         "
       >
-        <div class="bg-header py-6 flex justify-center items-center">
+        <div class="bg-header py-9 flex justify-center items-center">
           <button
             type="button"
             ref="btnClose"

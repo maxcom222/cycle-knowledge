@@ -18,8 +18,9 @@ const actions = {
     dispatch("fetchArticle", id, { root: true });
     commit("setBookmarks", response.data);
   },
-  async deleteBookmark({ commit }, id) {
+  async deleteBookmark({ commit, dispatch }, id) {
     await axios.delete(`/api/bookmarks/${id}`);
+    dispatch("fetchArticle", id, { root: true });
     commit("removeBookmark", id);
   },
 };

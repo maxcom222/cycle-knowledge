@@ -88,15 +88,11 @@
                   h-12
                   border border-transparent
                   rounded-full
-                  text-text
-                  bg-button
                   hover:bg-button-dark
                   outline-none
-                  ring-2 ring-offset-2 ring-text
                 "
               >
-                <span class="sr-only">Bookmark</span>
-                <BookmarkIcon class="h-4 w-4" aria-hidden="true" />
+                <img src="/buttons/bookmark_selected.png" alt="" />
               </button>
               <button
                 v-else
@@ -112,17 +108,10 @@
                   h-12
                   border border-transparent
                   rounded-full
-                  text-text
-                  bg-button
-                  hover:bg-button-dark
                   focus:outline-none
-                  focus:ring-2
-                  focus:ring-offset-2
-                  focus:ring-text
                 "
               >
-                <span class="sr-only">Bookmark</span>
-                <BookmarkIcon class="h-4 w-4" aria-hidden="true" />
+                <img src="/buttons/bookmark_default.png" alt="" />
               </button>
             </div>
             <div
@@ -145,7 +134,7 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
-import { XIcon, BookmarkIcon } from "@heroicons/vue/outline";
+import { XIcon } from "@heroicons/vue/outline";
 
 import { mapGetters, mapActions } from "vuex"; //
 
@@ -161,7 +150,6 @@ export default {
     TransitionChild,
     TransitionRoot,
     XIcon,
-    BookmarkIcon,
   },
   setup() {
     return {
