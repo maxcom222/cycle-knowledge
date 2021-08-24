@@ -146,17 +146,19 @@
       </transition>
     </Popover>
   </header>
-  <Bookmark
+  <!-- <Bookmark
     :openModal="openBookmarkModal"
     @bookmark-hide="openBookmarkModal = false"
-  />
+  /> -->
+  <Nbookmark :openModal="openBookmarkModal" @bookmark-hide="closeBookmark()" />
 </template>
 <script>
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
-import Bookmark from "@/views/Bookmark";
+// import Bookmark from "@/views/Bookmark";
+import Nbookmark from "@/views/Nbookmark";
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 const menus = [];
 
@@ -167,12 +169,19 @@ export default {
     PopoverPanel,
     MenuIcon,
     XIcon,
-    Bookmark,
+    Nbookmark,
+    // Bookmark,
   },
   computed: mapGetters(["currentTitle"]),
   methods: {
+    ...mapActions(["fetchArticle", "setBodyScroll"]),
     openBookmark() {
       this.openBookmarkModal = true;
+      this.setBodyScroll(true);
+    },
+    closeBookmark() {
+      this.openBookmarkModal = false;
+      this.setBodyScroll(false);
     },
   },
   data() {

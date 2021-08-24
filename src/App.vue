@@ -1,14 +1,24 @@
 <template>
-  <Header />
-  <main class="pb-28">
-    <router-view />
-  </main>
-  <Footer />
+  <div
+    :style="
+      isBodyScroll == true
+        ? 'overflow: hidden; height: 100vh'
+        : 'overflow: auto'
+    "
+  >
+    <Header />
+    <main class="pb-28">
+      <router-view />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <script>
 import Header from "@/views/partials/Header";
 import Footer from "@/views/partials/Footer";
+
+import { mapGetters } from "vuex";
 
 const menus = [];
 
@@ -21,6 +31,7 @@ export default {
     document.title = "Zykluswissen";
     return { menus };
   },
+  computed: mapGetters(["isBodyScroll"]),
 };
 </script>
 

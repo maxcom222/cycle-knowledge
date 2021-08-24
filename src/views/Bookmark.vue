@@ -1,11 +1,10 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   <TransitionRoot as="template" :show="openModal">
     <Dialog
       as="div"
-      auto-reopen="true"
+      auto-reopen="false"
       class="fixed z-10 inset-0 overflow-y-auto"
-      @close="hide()"
+      @close="hideBookmark()"
     >
       <div class="flex items-center justify-center text-center">
         <TransitionChild
@@ -55,6 +54,7 @@
               <div class="bg-header py-6 flex justify-center items-center">
                 <button
                   type="button"
+                  ref="btnClose"
                   class="
                     absolute
                     left-3
@@ -66,7 +66,7 @@
                     hover:text-open-dark
                     focus:outline-none
                   "
-                  @click="hide()"
+                  @click="hideBookmark()"
                 >
                   <span class="sr-only">Close modal</span>
                   <XIcon class="h-6 w-6" aria-hidden="true" />
@@ -79,9 +79,10 @@
                 </DialogTitle>
               </div>
               <div class="mt-3 sm:mt-5 px-2">
-                <span
+                <button
                   v-for="bookmark in bookmarksList"
                   :key="bookmark.id"
+                  @click="this.openArticle(bookmark.id)"
                   class="
                     inline-flex
                     rounded-full
@@ -103,7 +104,7 @@
                     @click="this.deleteBookmark(bookmark.id)"
                     class="
                       flex-shrink-0
-                      ml-0.5
+                      mx-2
                       h-4
                       w-4
                       rounded-full
@@ -129,7 +130,7 @@
                       />
                     </svg>
                   </button>
-                </span>
+                </button>
               </div>
             </div>
           </div>
@@ -137,6 +138,7 @@
       </div>
     </Dialog>
   </TransitionRoot>
+  <Article :openModal="openArticleModal" @article-hide="articleHide()" />
 </template>
 
 <script>
@@ -147,7 +149,10 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
+
 import { XIcon } from "@heroicons/vue/outline";
+
+import Article from "@/views/Article";
 
 import { mapGetters, mapActions } from "vuex";
 
@@ -157,6 +162,7 @@ export default {
     openModal: Boolean,
   },
   components: {
+    Article,
     Dialog,
     DialogOverlay,
     DialogTitle,
@@ -164,19 +170,26 @@ export default {
     TransitionRoot,
     XIcon,
   },
-  setup() {
-    return {
-      open: false,
-    };
+  data() {
+    return { openArticleModal: false, open: false };
   },
   async created() {
     await this.fetchBookmarks();
   },
-  computed: mapGetters(["bookmarksList"]),
+  computed: mapGetters(["bookmarksList", "selectedCategory"]),
   methods: {
-    ...mapActions(["fetchBookmarks", "deleteBookmark"]),
-    hide() {
+    ...mapActions(["fetchBookmarks", "deleteBookmark", "fetchArticle"]),
+    hideBookmark() {
       this.$emit("bookmark-hide");
+    },
+    async openArticle(article_id) {
+      await this.fetchArticle(article_id);
+      this.$refs.btnClose.focus();
+      this.openArticleModal = true;
+    },
+    articleHide() {
+      this.$refs.btnClose.focus();
+      this.openArticleModal = false;
     },
   },
 };
