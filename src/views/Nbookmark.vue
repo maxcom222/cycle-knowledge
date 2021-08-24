@@ -53,8 +53,7 @@
               rounded-full
               items-center
               py-0.5
-              pl-2.5
-              pr-1
+              px-2.5
               mx-2
               my-2
               text-sm
@@ -64,7 +63,7 @@
             "
           >
             {{ bookmark.title }}
-            <button
+            <!-- <button
               type="button"
               @click="this.deleteBookmark(bookmark.id)"
               class="
@@ -94,7 +93,7 @@
                   d="M1 1l6 6m0-6L1 7"
                 />
               </svg>
-            </button>
+            </button> -->
           </button>
         </div>
       </div>

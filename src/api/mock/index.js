@@ -125,7 +125,7 @@ export default function ({ environment = "development" } = {}) {
           {
             category_id: 1,
             id: 1,
-            is_bookmark: true,
+            is_bookmark: false,
             title: "5-Tage-Regel",
             description: `Diese Regel gilt während der ersten 12 Zyklen, die du nach den NFP-Regeln nach sensiplan® auswertest.
               Wenn du im letzten Zyklus eine Temperaturhochlage ausgewertet hast, beginnt deine fruchtbare Zeit an Zyklustag 6. D. h. dass du in den ersten 12 Zyklen am Zyklusanfang die ersten 5 Tage als unfruchtbar annehmen kannst.
