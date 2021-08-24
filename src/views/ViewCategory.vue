@@ -58,7 +58,7 @@
           bg-button
           hover:bg-button-dark
           border-2 border-text
-          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-text
+          focus:outline-none
         "
       >
         {{ one.title }}
