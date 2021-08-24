@@ -7,19 +7,7 @@
       class="fixed z-10 inset-0 overflow-y-auto"
       @close="hide()"
     >
-      <div
-        class="
-          flex
-          items-center
-          justify-center
-          min-h-screen
-          pt-4
-          px-4
-          pb-20
-          text-center
-          sm:block sm:p-0
-        "
-      >
+      <div class="flex items-center justify-center text-center">
         <TransitionChild
           as="template"
           enter="ease-out duration-300"
@@ -51,43 +39,31 @@
         >
           <div
             class="
+              min-w-full min-h-screen
+              h-full
               inline-block
-              align-middle
-              bg-white
-              rounded-lg
-              px-4
-              pb-4
+              align-bottom
+              bg-body
               overflow-hidden
               shadow-xl
               transform
               transition-all
-              w-96
-              sm:align-middle sm:max-w-2xl
+              sm:align-middle sm:max-w-sm
             "
           >
             <div>
-              <div
-                class="
-                  bg-white
-                  pt-3
-                  pb-1
-                  border-b border-gray-200
-                  flex
-                  justify-center
-                  items-center
-                "
-              >
+              <div class="bg-header py-6 flex justify-center items-center">
                 <button
                   type="button"
                   class="
                     absolute
-                    left-4
+                    left-3
                     rounded-md
                     inline-flex
                     items-center
                     justify-center
-                    text-text
-                    hover:text-text-dark
+                    text-open
+                    hover:text-open-dark
                     focus:outline-none
                   "
                   @click="hide()"
@@ -97,7 +73,7 @@
                 </button>
                 <DialogTitle
                   as="h3"
-                  class="text-lg leading-6 font-medium text-text"
+                  class="leading-6 text-2xl md:text-3xl text-text font-bold"
                 >
                   Bookmarks
                 </DialogTitle>
